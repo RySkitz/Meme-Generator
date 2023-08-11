@@ -32,3 +32,48 @@
     font-weight: 500;
     font-size: 1em;
 }
+.Position {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.Container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.Input {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
+    gap: 10px;
+}
+.Input input {
+    border: none;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    padding: 5px;
+}
+.Generate-Button {
+    border-radius: 5px;
+    background: linear-gradient(135deg, #711F8D 0%, #A818DA 100%);
+    border: 0;
+    color: white;  
+    grid-column: 1/-1;
+    cursor: pointer;
+    padding: 8px;
+}
+.Image {
+    width: 100%;   
+}
+.Image img{
+    width: 100%;   
+}
+@media (max-width: 425px){
+    .Navbar{
+        font-size: .8rem;
+    }
+    .Input {
+        grid-template-columns: 1fr;
+    }
+}

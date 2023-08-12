@@ -2,6 +2,9 @@
 :root{
 	--font: 'Poppins', sans-serif;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 *{
     margin: 0;
     padding: 0;
@@ -41,6 +44,7 @@
     display: flex;
     flex-direction: column;
     margin: 20px;
+    width: 400px;
 }
 .Input {
     display: grid;
@@ -64,10 +68,33 @@
     padding: 8px;
 }
 .Image {
-    width: 100%;   
+    width: 100%;
+    position: relative;   
 }
 .Image img{
     width: 100%;   
+}
+.Image p {
+    max-width: 400px;
+    font-weight: 600;
+    font-size: 16pt;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-align: center;
+
+}
+.Text-Above{
+    position:absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, 0)
+}
+.Text-Below{
+    position:absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0)
 }
 @media (max-width: 425px){
     .Navbar{
@@ -75,5 +102,8 @@
     }
     .Input {
         grid-template-columns: 1fr;
+    }
+    .Container {
+        max-width: 300px;
     }
 }

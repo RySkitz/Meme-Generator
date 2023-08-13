@@ -11,7 +11,13 @@ export default function Content(){
 
     const [allMemeImages, setAllMemesImages] = useState(memesData)
 
-    const [memeImage, setMemeImage] = useState('')
+    function handleChange(event){
+        const {name, value} = event.target 
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            [name]: value
+        }))
+    }
 
     function getMemeImage(){
         const memesArray = memesData.data.memes 
@@ -23,29 +29,31 @@ export default function Content(){
         }))
     }
 
-    const [aboveText, setAboveText] = useState("")
-    const [belowText, setBelowText] = useState("")
-
-    function changeAboveText(event){
-        setAboveText(event.target.value)
-    }
-    function changeBelowText(event){
-        setBelowText(event.target.value)
-    }
-
     return(
         <> 
             <div className="Position">
                 <div className="Container">
                     <div className="Input">
-                        <input className="Input-Top" placeholder="Text Above" onChange={changeAboveText}/>
-                        <input className="Input-Bottom" placeholder="Text Below" onChange={changeBelowText}/>
+                        <input 
+                            className="Input-Top" 
+                            placeholder="Text Above"
+                            name="topText"
+                            value={meme.topText}
+                            onChange={handleChange}
+                        />
+                        <input 
+                            className="Input-Bottom" 
+                            placeholder="Text Below"
+                            name="bottomText"
+                            value={meme.bottomText}
+                            onChange={handleChange}
+                        />
                         <button className="Generate-Button" onClick={getMemeImage}>Get a new meme image</button>                        
                     </div>
                     <div className="Image">
                         <img src={meme.randomImage} alt="meme" className="Image--Meme"/>
-                        <p className="Text-Above">{aboveText}</p>
-                        <p className="Text-Below">{belowText}</p>
+                        <p className="Text-Above">{meme.topText}</p>
+                        <p className="Text-Below">{meme.bottomText}</p>
                     </div> 
                 </div>
             </div>

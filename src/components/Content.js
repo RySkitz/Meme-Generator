@@ -12,9 +12,13 @@ export default function Content(){
 
     useEffect(() => {
         const url = `https://api.imgflip.com/get_memes`
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setAllMemes(data.data.memes))
+        async function getMemes(){
+            const res = await fetch(url)
+            const data = await res.json()
+            setAllMemes(data.data.memes)
+        }
+
+        getMemes()
     }, [])
 
     // Generate random image
